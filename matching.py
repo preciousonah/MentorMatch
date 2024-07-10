@@ -31,7 +31,7 @@ def compute_similarity(mentor, mentee):
     union = len(mentor_skills | mentee_skills)
     skill_similarity = intersection / union if union != 0 else 0
 
-    # Compute other attribute similarity (for simplicity, we'll use binary values)
+    # Compute other attribute similarity
     interest_similarity = 1 if mentor['interests'] == mentee['interests'] else 0
     goal_similarity = 1 if mentor['goals'] == mentee['goals'] else 0
 
