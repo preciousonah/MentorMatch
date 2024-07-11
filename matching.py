@@ -103,7 +103,7 @@ if __name__ == '__main__':
     profiles = fetch_profiles()
     ranked_matches = rank_mentors_for_mentees(profiles, api_key)
     for match in ranked_matches:
-        print(f"Recommended mentors for {match['mentee']['name']}: {match['mentors'][0][0]['name']}")
+        print(f"\nRecommended mentors for {match['mentee']['name']}: {match['mentors'][0][0]['name']}")
         print(f"Most similar mentors for {match['mentee']['name']}:")
         for mentor, score in match['mentors']:
                 print(f"  Mentor: {mentor['name']} is a match with a score of {score:.2f}")
