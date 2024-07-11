@@ -11,6 +11,8 @@ def create_db_and_table():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             user_type TEXT NOT NULL,
+            location TEXT NOT NULL,
+            university TEXT NOT NULL,
             skills TEXT NOT NULL,
             interests TEXT NOT NULL,
             goals TEXT NOT NULL
