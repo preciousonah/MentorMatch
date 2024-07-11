@@ -24,21 +24,35 @@ def fetch_profiles():
 
 
 def compute_similarity(mentor, mentee):
-    # Compute skill similarity using Jaccard similarity
+    # Compute skill similarity using Jaccard similarity coefficient
     mentor_skills = set(mentor['skills'])
     mentee_skills = set(mentee['skills'])
     intersection = len(mentor_skills & mentee_skills)
     union = len(mentor_skills | mentee_skills)
     skill_similarity = intersection / union if union != 0 else 0
 
+    # Compute interests similarity using Jaccard similarity coefficient
+    mentor_interests = set(mentor['interests'])
+    mentee_interests = set(mentee['interests'])
+    intersection = len(mentor_interests & mentee_interests)
+    union = len(mentor_interests | mentee_interests)
+    interest_similarity = intersection / union if union != 0 else 0
+
+    # Compute goals similarity using Jaccard similarity coefficient
+    mentor_goals = set(mentor['goals'])
+    mentee_goals = set(mentee['goals'])
+    intersection = len(mentor_goals & mentee_goals)
+    union = len(mentor_goals | mentee_goals)
+    goal_similarity = intersection / union if union != 0 else 0
+
     # Compute other attribute similarity
-    interest_similarity = 1 if mentor['interests'] == mentee['interests'] else 0
-    goal_similarity = 1 if mentor['goals'] == mentee['goals'] else 0
+    location_similarity = 1 if mentor['location'] == mentee['location'] else 0
 
     # Weighted sum of similarities
-    total_similarity = (0.4 * skill_similarity + 
-                        0.4 * interest_similarity + 
-                        0.2 * goal_similarity)
+    total_similarity = (0.2 * skill_similarity + 
+                        0.2 * interest_similarity + 
+                        0.5 * location_similarity +
+                        0.1 * goal_similarity)
 
     return total_similarity
 
@@ -60,17 +74,9 @@ def rank_mentors_for_mentees(profiles):
 if __name__ == '__main__':
     profiles = fetch_profiles()
     ranked_matches = rank_mentors_for_mentees(profiles)
-    user_input = int(input("View ranked matches for each mentee (1) or View suggested matches (2)\n"))
-    while user_input != 1 and user_input != 2:
-        print("Please enter either '1' or '2'")
-        user_input = int(input("View ranked matches for each mentee (1) or View suggested matches (2)\n"))
-    if user_input == 1:
-        for match in ranked_matches:
-            print(f"Recommended mentors for {match['mentee']['name']}:")
-            for mentor, score in match['mentors']:
+    
+    for match in ranked_matches:
+        print(f"Recommended mentors for {match['mentee']['name']}: {match['mentors'][0][0]['name']}")
+        print(f"Most similar mentors for {match['mentee']['name']}:")
+        for mentor, score in match['mentors']:
                 print(f"  Mentor: {mentor['name']} is a match with a score of {score:.2f}")
-    if user_input == 2:
-        for match in ranked_matches:
-            print(f"Recommended mentor for {match['mentee']['name']}:")
-            mentor = match['mentors'][0][0]['name']
-            print(f"  Mentor: {mentor}")

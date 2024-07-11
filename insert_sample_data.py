@@ -11,6 +11,8 @@ def insert_sample_data():
         {
             'name': 'Alice',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['Python', 'Machine Learning', 'Data Science']),
             'interests': 'Artificial Intelligence',
             'goals': 'Help mentees learn AI'
@@ -18,6 +20,8 @@ def insert_sample_data():
         {
             'name': 'Bob',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['JavaScript', 'React', 'Node.js']),
             'interests': 'Web Development',
             'goals': 'Guide mentees in web development'
@@ -25,6 +29,8 @@ def insert_sample_data():
         {
             'name': 'Eve',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['Java', 'Spring', 'Microservices']),
             'interests': 'Backend Development',
             'goals': 'Mentor students in enterprise application development'
@@ -32,6 +38,8 @@ def insert_sample_data():
         {
             'name': 'Frank',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['C++', 'Embedded Systems', 'Robotics']),
             'interests': 'Hardware and Robotics',
             'goals': 'Inspire interest in robotics and hardware programming'
@@ -39,6 +47,8 @@ def insert_sample_data():
         {
             'name': 'Grace',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['HTML', 'CSS', 'UI/UX Design']),
             'interests': 'Design',
             'goals': 'Help students build intuitive user interfaces'
@@ -46,6 +56,8 @@ def insert_sample_data():
         {
             'name': 'Hank',
             'user_type': 'mentor',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['R', 'Statistics', 'Data Analysis']),
             'interests': 'Data Science',
             'goals': 'Guide students in statistical analysis and data interpretation'
@@ -55,6 +67,8 @@ def insert_sample_data():
         {
             'name': 'Charlie',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['Python', 'Data Analysis']),
             'interests': 'Artificial Intelligence',
             'goals': 'Learn more about AI'
@@ -62,6 +76,8 @@ def insert_sample_data():
         {
             'name': 'Diana',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['JavaScript', 'CSS']),
             'interests': 'Web Development',
             'goals': 'Become a full-stack developer'
@@ -69,6 +85,8 @@ def insert_sample_data():
         {
             'name': 'Ivy',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['Java', 'Data Structures']),
             'interests': 'Backend Development',
             'goals': 'Master backend technologies'
@@ -76,6 +94,8 @@ def insert_sample_data():
         {
             'name': 'Jack',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['C++', 'Algorithms']),
             'interests': 'Competitive Programming',
             'goals': 'Improve problem-solving skills'
@@ -83,6 +103,8 @@ def insert_sample_data():
         {
             'name': 'Kate',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['HTML', 'CSS', 'JavaScript']),
             'interests': 'Frontend Development',
             'goals': 'Enhance frontend development skills'
@@ -90,6 +112,8 @@ def insert_sample_data():
         {
             'name': 'Leo',
             'user_type': 'mentee',
+            'location': 'New York',
+            'university': 'NYU',
             'skills': json.dumps(['R', 'Excel']),
             'interests': 'Data Analysis',
             'goals': 'Gain expertise in data visualization and analysis'
@@ -99,9 +123,9 @@ def insert_sample_data():
     # Insert data into the profiles table
     for profile in profiles:
         cursor.execute('''
-            INSERT INTO profiles (name, user_type, skills, interests, goals)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (profile['name'], profile['user_type'], profile['skills'], profile['interests'], profile['goals']))
+            INSERT INTO profiles (name, user_type, location, university, skills, interests, goals)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (profile['name'], profile['user_type'], profile['location'], profile['university'], profile['skills'], profile['interests'], profile['goals']))
 
     conn.commit()
     conn.close()
