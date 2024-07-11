@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header styles */
+.header {
+  background-color: white;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+.profilePic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+nav {
+  background-color: #102E44;
+  height: 50px;
+  width: 100%;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 15px;
+  font-weight: bold;
+}
+
+/* footer styles */
+footer {
+  display: flex;
+  padding: 10px;
+}
+
+footer div {
+  flex: 1;
+}
+
+.footer-logo {
+  width: 120px;
+}
+
+footer p {
+  text-align: right;
+  padding: 10px;
+  border-top: 2px solid #102E44;
+}
+
+/* mentee dashboard styles */
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+}
+
+.left-section {
+  width: 30%;
+  margin: 20px;
+}
+
+.user-info {
+  background-color: #188adb;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+  margin-bottom: 20px;
+}
+
+.right-section {
+  width: 70%;
+  align-items: center;
+}
+
+.mentor-card {
+  align-items: center;
+  justify-content: center;
+}
+
+.bookmarks {
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  text-align: center;
+  border-bottom: 1px solid;
+  padding: 5px;
+}
+
+.bookmark-item {
+  list-style: none;
+  margin-bottom: 16px;
+  padding: 10px 10px;
+}
