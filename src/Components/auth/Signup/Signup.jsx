@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import './Signup.css';
+import { useNavigate } from 'react-router-dom';
 import {
   doCreateUserWithEmailAndPassword,
-  doSignInWithGoogle,
-  doSignOut, 
+  doSignInWithGoogle
 } from '../../../firebase/auth'; 
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       await doCreateUserWithEmailAndPassword(email, password);
       console.log('User created successfully!');
+      navigate('/onboarding'); 
     } catch (error) {
       console.error('Error signing up:', error);
     }
@@ -25,6 +26,7 @@ const Signup = () => {
     try {
       await doSignInWithGoogle();
       console.log('Google sign in successful!');
+      navigate('/onboarding'); 
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }
@@ -40,11 +42,7 @@ const Signup = () => {
         <input type="email" placeholder="E-mail address" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="create-account-btn" onClick={handleSignUp}>Create account</button>
-        <p className="login-link">Already have an account? <a href="/login">Log in</a></p>
-      </div>
-      <div className="welcome-container">
-        <h1>Welcome to our community</h1>
-        <p>Personalized, updated daily, and beautifully presented. Create an account.</p>
+        <p className="signup-link">Already have an account? <a href="/login">Log in</a></p>
       </div>
     </div>
   );
